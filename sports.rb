@@ -5,10 +5,16 @@ players = [
   { :name => "Mark", :sport => "football" }
 ]
 
-players = {
-  :tennis => ["Sam","Ed"],
-  :squash => "Mary",
-  :football => "Mark"
-}
+players_by_sport = {}
 
-puts players
+players.each do |player|
+  sport = player[:sport]
+
+  if players_by_sport[sport] == nil
+    players_by_sport[sport] = []
+  end
+
+  players_by_sport[sport].push(player[:name])
+end
+
+puts players_by_sport
